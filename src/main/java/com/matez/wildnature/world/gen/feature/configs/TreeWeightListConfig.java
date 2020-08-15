@@ -15,13 +15,10 @@ public class TreeWeightListConfig implements IFeatureConfig {
    }
 
    public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-      Gson gson = new Gson();
-      return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("trees"), ops.createString(gson.toJson(list)))));
+      return new Dynamic<>(ops);
    }
 
    public static <T> TreeWeightListConfig deserialize(Dynamic<T> dynamic) {
-      String json = dynamic.get("trees").asString("{}");
-      Gson gson = new Gson();
-      return new TreeWeightListConfig(gson.fromJson(json,TreeWeighList.class));
+      return new TreeWeightListConfig(new TreeWeighList());
    }
 }

@@ -1,6 +1,7 @@
 package com.matez.wildnature.world.gen.structures.nature;
 
 import com.google.common.collect.Sets;
+import com.google.gson.annotations.Expose;
 import com.matez.wildnature.blocks.FloweringLeaves;
 import com.matez.wildnature.blocks.FruitableLeaves;
 import com.matez.wildnature.blocks.LeavesBase;
@@ -43,11 +44,14 @@ public class SchemFeature extends Feature<NoFeatureConfig> {
     public BlockState LOG_OVERRIDE = null;
     public BlockState DIRT = Blocks.DIRT.getDefaultState();
     public BlockState BRANCH = LEAVES;
+    @Expose
     public IWorld world;
     public BlockPos startBlockPos;
     public Random random;
     public int terrainIncrease = 0;
+    @Expose
     private ArrayList<BlockPos> addedBlocks = new ArrayList<>();
+    @Expose
     private ArrayList<BlockPos> bottomBlocks = new ArrayList<>();
     private int rotation;
     private boolean canGenerate = true;
